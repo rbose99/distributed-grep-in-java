@@ -1,5 +1,5 @@
 # distributed-grep-in-java
-Distributed Grep using a lightweight MapReduce implementation using Java 24
+Distributed Grep using a lightweight MapReduce implementation in Java 24
 
 Supports both platform threads and virtual threads with some simple benchmarks.
 
