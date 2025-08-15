@@ -4,12 +4,10 @@ package grep.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import grep.core.Mapper;
-import grep.core.Pair;
+import grep.util.Pair;
 
 
-public class GrepMapper implements Mapper {
-    @Override
+public class GrepMapper {
     public List<Pair<String, String>> map(String fileName, List<String> lines, String pattern) {
         List<Pair<String, String>> result = new ArrayList<>();
         for (int i = 0; i < lines.size(); i++) {

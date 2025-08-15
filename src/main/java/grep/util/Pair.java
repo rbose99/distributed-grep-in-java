@@ -1,5 +1,5 @@
 
-package grep.core;
+package grep.util;
 
 /**
  *

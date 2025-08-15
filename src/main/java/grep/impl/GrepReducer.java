@@ -10,11 +10,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-import grep.core.Pair;
-import grep.core.Reducer;
+import grep.util.Pair;
 
-public class GrepReducer implements Reducer {
-    @Override
+public class GrepReducer {
+
     public void reduce(List<Pair<String, String>> mappedData, String outputPath) {
         System.out.println("Number of matched lines: " + mappedData.size());
         try (var writer = new BufferedWriter(new FileWriter(outputPath))) {

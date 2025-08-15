@@ -9,16 +9,16 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import grep.core.Mapper;
-import grep.core.Pair;
-import grep.core.Reducer;
+import grep.impl.GrepMapper;
+import grep.impl.GrepReducer;
+import grep.util.Pair;
 
 public class MapReduceEngine {
-    private final Mapper mapper;
-    private final Reducer reducer;
+    private final GrepMapper mapper;
+    private final GrepReducer reducer;
     private final boolean useVirtualThreads;
 
-    public MapReduceEngine(Mapper mapper, Reducer reducer, boolean useVirtualThreads) {
+    public MapReduceEngine(GrepMapper mapper, GrepReducer reducer, boolean useVirtualThreads) {
         this.mapper = mapper;
         this.reducer = reducer;
         this.useVirtualThreads = useVirtualThreads;
@@ -38,7 +38,7 @@ public class MapReduceEngine {
         for (String filePath : filePaths) {
             futures.add(executor.submit(() -> {
                 List<String> lines = Files.readAllLines(Paths.get(filePath));
-                Thread.sleep(10); // simulate long disk read
+                Thread.sleep(10); 
                 return mapper.map(filePath, lines, pattern);
             }));
         }
